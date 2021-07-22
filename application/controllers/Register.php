@@ -3,6 +3,8 @@ class Register extends CI_Controller
 {
 	public function register($json_data)
 	{	
+		$this->load->model('Register_model');
+		
 		$json_data = json_decode($json_data);
 
 		$client_number   = $json_data["client_number"];
@@ -18,7 +20,9 @@ class Register extends CI_Controller
 	}
 
 	public function authorization($json_data)
-	{
+	{	
+		$this->load->model('Register_model');
+		
 		$json_data = json_decode($json_data);
 
 		$client_number = $json_data["client_number"];
