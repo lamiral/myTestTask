@@ -1,7 +1,5 @@
 <?php
 
-//Все это должен вернуть в формате JSON
-
 class Products extends CI_Controller
 {	
 	/*
@@ -17,7 +15,7 @@ class Products extends CI_Controller
 		);
 
 	/*
-		Метод get_all возвращает все записи таблицы товаров вместе с картинками
+		Метод Products::get_all() возвращает все записи таблицы товаров вместе с картинками
 	*/
 		
 	public function get_all()
@@ -33,27 +31,25 @@ class Products extends CI_Controller
 	}
 
 	/*
-		Метод get_by_id возвращает товар по идентификатору
+		Метод Products::get_by_id() возвращает товар по идентификатору
 	*/
 	public function get_by_id($id)
 	{
 		$this->load->model('Products_model');
 		$product = $this->Products_model->get_by_id($id);
-		
-		$json_anwer = json_encode($product);
-		
 
+		$json_anwer = json_encode($product);
 		var_dump($json_anwer);
 	}
 
 
 	/*
-		Метод	get_by_group возвращает список товаров из данной группы
+		Метод Products::get_by_group() возвращает список товаров из данной группы
 	*/
 	public function get_by_group($group)
 	{
 		$this->load->model('Products_model');
-		$products = $this->Products_model->get_group($group);
+		$products = $this->Products_model->get_by_group($group);
 
 		$json_anwer = json_encode($products);
 
