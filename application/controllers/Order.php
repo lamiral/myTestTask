@@ -123,7 +123,7 @@ class Order extends CI_Controller
 			);
 
 		
-		if($order = $this->Order_model->create($header_order,$order['products']))
+		if($this->Order_model->create($header_order,$order['products']))
 		{
 			$json_answer = json_encode($this->status_ok);
 		}
