@@ -92,6 +92,8 @@ class Order_model extends CI_Model
 		$result = $this->db->insert(self::ORDERS_ITEMS_TABLE,$order_insert_items);
 		
 		$this->db->trans_complete();
+		
+		return $result;
 	}
 
 	/*
